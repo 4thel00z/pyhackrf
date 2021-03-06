@@ -348,6 +348,12 @@ class HackRF(object):
 
         self.buffer = bytearray()
         self.num_bytes = 16*262144
+    
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, *args):
+        self.close()
 
     def open(self, device_index=0):
 
@@ -544,6 +550,6 @@ def bytes2iq(data):
 
 
 # really, user shouldn't have to call this function at all
-result = libhackrf.hackrf_init()
-if result != 0:
+initialized = libhackrf.hackrf_init()
+if initialized != 0:
     print("error initializing the hackrf library")
