@@ -2,7 +2,7 @@
 
 ## Motivation
 
-All python bindings for hackrf are experimental at best and the installation is quite quirky and weird.
+All python bindings for hackrf are experimental at best, and the installation is quite quirky and weird.
 This is an attempt to change that.
 
 ## Installation
