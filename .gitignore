@@ -1,1 +1,7 @@
 *.pyc
+__pycache__
+new
+.idea
+build
+dist
+hackrf-2021.03.1.tar.xz
