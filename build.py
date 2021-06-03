@@ -36,5 +36,3 @@ def build(kwargs):
         subprocess.run(["make"], stderr=sys.stderr, stdout=sys.stdout, cwd=build_dir)
         subprocess.run(["sudo", "make", "install"], stderr=sys.stderr, stdout=sys.stdout, cwd=build_dir)
         subprocess.run(["sudo", "ldconfig"], stderr=sys.stderr, stdout=sys.stdout, cwd=build_dir)
-
-        subprocess.run(["ls", "-R"], stderr=sys.stderr, stdout=sys.stdout, cwd=build_dir)
