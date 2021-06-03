@@ -52,7 +52,7 @@ def install_hackrf():
         subprocess.run(["git",
                         "clone",
                         "--recurse-submodules",
-                        "git@github.com:mossmann/hackrf.git"],
+                        "https://github.com/mossmann/hackrf.git"],
                        stderr=sys.stderr,
                        stdout=sys.stdout,
                        cwd=tmp_dir_name)
