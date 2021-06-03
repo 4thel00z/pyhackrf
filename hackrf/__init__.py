@@ -1,7 +1,7 @@
 # TODO: only use transfer->valid_length in callbacks
 # TODO: make error messages more informative
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 
 from ctypes import *
 import logging
