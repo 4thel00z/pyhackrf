@@ -8,7 +8,7 @@ This is an attempt to change that.
 ## Installation
 
 ```
-pip install hackrf
+pip install pyhackrf
 ```
 
 ## Quick Example
