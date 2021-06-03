@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyhackrf"
-version = "0.1.4"
+version = "0.1.5"
 description = "Python wrapper for the libhackrf library"
 authors = ["4thel00z <4thel00z@gmail.com>"]
 license = "GPL-3"
