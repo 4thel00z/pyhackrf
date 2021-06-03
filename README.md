@@ -19,9 +19,9 @@ To take samples and plot the power spectral density:
 from hackrf import *
 from pylab import *     # for plotting
 
-with HackRF() as hackrf:
-	hackrf.sample_rate = 20e6
-	hackrf.center_freq = 88.5e6
+with HackRF() as hrf:
+	hrf.sample_rate = 20e6
+	hrf.center_freq = 88.5e6
 
 	samples = hackrf.read_samples(2e6)
 
@@ -39,7 +39,7 @@ To create a hackrf device:
 ```python
 from hackrf import *
 
-hackrf = HackRF()
+hrf = HackRF()
 ```
 
 If you have two HackRFs plugged in, you can open them with the `device_index` argument:
