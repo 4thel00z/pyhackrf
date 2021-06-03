@@ -1,0 +1,2 @@
+shell:
+	poetry shell
