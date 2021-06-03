@@ -1,23 +1,19 @@
 # TODO: only use transfer->valid_length in callbacks
 # TODO: make error messages more informative
 
+__version__ = "0.1.0"
+
 from ctypes import *
 import logging
 import os
 import numpy as np
 import time
 
-try:
-    from itertools import izip
-except ImportError:
-    izip = zip
-
 path = os.path.dirname(__file__)
 logging.basicConfig()
 logger = logging.getLogger('HackRf Core')
 logger.setLevel(logging.DEBUG)
 
-#libhackrf = CDLL('/usr/local/lib/libhackrf.so')
 libhackrf = CDLL('libhackrf.so.0')
 
 def enum(*sequential, **named):
@@ -309,26 +305,26 @@ f = libhackrf.hackrf_board_partid_serialno_read
 f.restype = c_int
 f.argtypes = [p_hackrf_device, POINTER(read_partid_serialno_t)]
 
-## extern ADDAPI int ADDCALL hackrf_set_txvga_gain(hackrf_device*
-## device, uint32_t value);
-#libhackrf.hackrf_set_txvga_gain.restype = c_int
-#libhackrf.hackrf_set_txvga_gain.argtypes = [POINTER(hackrf_device), c_uint32]
-## extern ADDAPI int ADDCALL hackrf_set_antenna_enable(hackrf_device*
-## device, const uint8_t value);
-#libhackrf.hackrf_set_antenna_enable.restype = c_int
-#libhackrf.hackrf_set_antenna_enable.argtypes = [POINTER(hackrf_device), c_uint8]
+# # extern ADDAPI int ADDCALL hackrf_set_txvga_gain(hackrf_device*
+# # device, uint32_t value);
+# libhackrf.hackrf_set_txvga_gain.restype = c_int
+# libhackrf.hackrf_set_txvga_gain.argtypes = [POINTER(hackrf_device), c_uint32]
+# # extern ADDAPI int ADDCALL hackrf_set_antenna_enable(hackrf_device*
+# # device, const uint8_t value);
+# libhackrf.hackrf_set_antenna_enable.restype = c_int
+# libhackrf.hackrf_set_antenna_enable.argtypes = [POINTER(hackrf_device), c_uint8]
 #
-## extern ADDAPI const char* ADDCALL hackrf_error_name(enum hackrf_error errcode);
-## libhackrf.hackrf_error_name.restype = POINTER(c_char)
-## libhackrf.hackrf_error_name.argtypes = []
+# # extern ADDAPI const char* ADDCALL hackrf_error_name(enum hackrf_error errcode);
+# # libhackrf.hackrf_error_name.restype = POINTER(c_char)
+# # libhackrf.hackrf_error_name.argtypes = []
 #
-## extern ADDAPI const char* ADDCALL hackrf_board_id_name(enum hackrf_board_id board_id);
-## libhackrf.hackrf_board_id_name.restype = POINTER(c_char)
-## libhackrf.hackrf_board_id_name.argtypes = []
+# # extern ADDAPI const char* ADDCALL hackrf_board_id_name(enum hackrf_board_id board_id);
+# # libhackrf.hackrf_board_id_name.restype = POINTER(c_char)
+# # libhackrf.hackrf_board_id_name.argtypes = []
 #
-## extern ADDAPI const char* ADDCALL hackrf_filter_path_name(const enum rf_path_filter path);
-## libhackrf.hackrf_filter_path_name.restype = POINTER(c_char)
-## libhackrf.hackrf_filter_path_name.argtypes = []
+# # extern ADDAPI const char* ADDCALL hackrf_filter_path_name(const enum rf_path_filter path);
+# # libhackrf.hackrf_filter_path_name.restype = POINTER(c_char)
+# # libhackrf.hackrf_filter_path_name.argtypes = []
 #
 
 
