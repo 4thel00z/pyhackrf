@@ -16,7 +16,7 @@ pip install pyhackrf
 To take samples and plot the power spectral density:
 
 ```python
-from libhackrf import *
+from hackrf import *
 from pylab import *     # for plotting
 
 with HackRF() as hackrf:
@@ -37,7 +37,7 @@ with HackRF() as hackrf:
 To create a hackrf device:
 
 ```python
-from libhackrf import *
+from hackrf import *
 
 hackrf = HackRF()
 ```
