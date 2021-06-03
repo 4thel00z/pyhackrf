@@ -1,20 +1,17 @@
 # pyhackrf
 
-A Python wrappper for libhackrf
+## Motivation
 
-# Description
+All python bindings for hackrf are experimental at best and the installation is quite quirky and weird.
+This is an attempt to change that.
 
-I wanted something like [pyrtldsr](https://github.com/roger-/pyrtlsdr) for the HackRF: a convenient python interface to handle calls to the libhackrf library.
-The closest thing I found was [py-hackrf-ctypes](https://github.com/wzyy2/py-hackrf-ctypes), but it's about four years old and libhackrf has changed in that time.
-Also, I wanted a more direct copy of pyrtlsdr as I've used it before.
+## Installation
 
-I have mashed together elements from pyrtlsdr and py-hackrf-ctypes to get started.
-Currently, you need to have the libhackrf.py file in the directory in which you are using it.
-Eventually I'll make it a nice package like pyrtlsdr.
+```
+pip install hackrf
+```
 
-This package is nowhere near complete but it implements `read_samples`, which is equivalent to the version found in pyrtlsdr.
-
-# Quick Example
+## Quick Example
 
 To take samples and plot the power spectral density:
 
@@ -22,18 +19,17 @@ To take samples and plot the power spectral density:
 from libhackrf import *
 from pylab import *     # for plotting
 
-hackrf = HackRF()
+with HackRF() as hackrf:
+	hackrf.sample_rate = 20e6
+	hackrf.center_freq = 88.5e6
 
-hackrf.sample_rate = 20e6
-hackrf.center_freq = 88.5e6
+	samples = hackrf.read_samples(2e6)
 
-samples = hackrf.read_samples(2e6)
-
-# use matplotlib to estimate and plot the PSD
-psd(samples, NFFT=1024, Fs=hackrf.sample_rate/1e6, Fc=hackrf.center_freq/1e6)
-xlabel('Frequency (MHz)')
-ylabel('Relative power (dB)')
-show()
+	# use matplotlib to estimate and plot the PSD
+	psd(samples, NFFT=1024, Fs=hackrf.sample_rate/1e6, Fc=hackrf.center_freq/1e6)
+	xlabel('Frequency (MHz)')
+	ylabel('Relative power (dB)')
+	show()
 ```
 
 # More Example Use
@@ -102,5 +98,11 @@ hackrf.set_lna_gain(8)
 hackrf.set_vga_gain(22)
 ```
 
+## Acknowledgements
 
+For now most of the work is based on [this](https://github.com/dressel/pyhackrf).
+That is going to change, also this notice will be removed then.
 
+## License
+
+This project is licensed under the GPL-3 license.
