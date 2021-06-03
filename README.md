@@ -8,6 +8,8 @@ This is an attempt to change that.
 ## Installation
 
 ```
+sudo apt-get update
+sudo apt-get install -y libusb-1.0-0-dev libfftw3-dev
 pip install pyhackrf
 ```
 
